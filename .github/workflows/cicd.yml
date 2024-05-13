@@ -14,7 +14,7 @@ jobs:
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker Image
-        run: docker build -t amudhavallir/stay-hub-frontend --build-arg VITE_API_BASE_URL='${{secrets.VITE_API_BASE_URL}}' --build-arg VITE_STRIPE_PUB_KEY="${{secrets.VITE_STRIPE_PUB_KEY}} .
+        run: docker build -t amudhavallir/stay-hub-frontend --build-arg VITE_API_BASE_URL='${{secrets.VITE_API_BASE_URL}}' --build-arg VITE_STRIPE_PUB_KEY='${{secrets.VITE_STRIPE_PUB_KEY}}' .
       - name: Publish Image to Docker Hub
         run: docker push amudhavallir/stay-hub-frontend:latest
 
